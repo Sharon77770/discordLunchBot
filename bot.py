@@ -66,13 +66,16 @@ async def 한강물(ctx):
 
 @bot.command()
 async def 급식(ctx):
+    await ctx.send('1')
+
     target = request.urlopen('https://search.naver.com/search.naver?where=nexearch&sm=top_sly.hst&fbm=1&acr=2&acq=%EB%8F%99%EC%9B%90&qdt=0&ie=utf8&query=%EB%8F%99%EC%9B%90%EA%B3%A0+%EA%B8%89%EC%8B%9D')
+    await ctx.send('2')
     soup = BeautifulSoup(target,'html.parser')
-
+    await ctx.send('3')
     msg = soup.find('div', class_='school_menu _page_panel').find_next_sibling("div").text
-
+    await ctx.send('4')
+    await ctx.send(msg)
     menu = getTodayMenu(msg)
-
     await ctx.send(menu)
     
 
