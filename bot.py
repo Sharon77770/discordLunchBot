@@ -45,7 +45,7 @@ def getTodayMenu(sourece):
 
 
 @bot.command()
-async def 한강물(ctx):
+async def 자살(ctx):
     target = request.urlopen('http://www.koreawqi.go.kr/wQSCHomeLayout_D.wq?action_type=T#')
     soup = BeautifulSoup(target,'html.parser')
     msg = soup.find('tr', class_='site_S01001').find_next_sibling("tr").text
