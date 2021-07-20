@@ -72,6 +72,7 @@ async def 급식(ctx):
     await ctx.send('2')
     soup = BeautifulSoup(target,'html.parser')
     await ctx.send('3')
+    await ctx.send(str(soup))
     msg = soup.find('div', class_='school_menu _page_panel').find_next_sibling("div").text
     await ctx.send('4')
     await ctx.send(msg)
