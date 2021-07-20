@@ -72,10 +72,7 @@ async def 급식(ctx):
     await ctx.send('2')
     soup = BeautifulSoup(target,'html.parser')
 
-    print(soup)
-
-    msg = soup.find('div', class_='school_menu _page_panel').find_next_sibling("div").text
-
+    msg = soup.find_all(attrs={'class':'"school_menu _page_panel'})
     
     
     menu = getTodayMenu(msg)
