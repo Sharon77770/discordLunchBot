@@ -19,10 +19,10 @@ def getTodayMenu(sourece):
     today = date.today()
     tomorrow = date.today() + timedelta(1)
 
-    splitTarget = str(today.month) + '월 ' + str(today.day) + '일 [점심]  '
+    splitTarget = str(today.month) + '월 ' + str(today.day) + '일 [점심]'
 
     if str(sourece).find(splitTarget) == -1 :
-        return str(today.month) + '월 ' + str(today.day) + '일 ' + '급식이 없습니다.'
+        return '급식이 없습니다.'
 
     newMsg = str(sourece).split(splitTarget)[1]
 
@@ -34,8 +34,10 @@ def getTodayMenu(sourece):
 
     msg = ''
 
-    for i in range(0, mList.__len__) :
+    for i in range(len(mList)) :
         msg += mList[i] + '\n'
+
+    print(msg)
 
     return msg
 
@@ -72,11 +74,12 @@ async def 급식(ctx):
 
     soup = BeautifulSoup(target,'html.parser')
 
-    msg = soup.find_all(attrs={'class':'"school_menu _page_panel'})
+    msg = soup.find_all(attrs={'class':'school_menu _page_panel'})
     
     menu = getTodayMenu(msg)
     
-    await ctx.send(menu)
+    await ctx.send('' + menu)
     
 
-bot.run(os.environ['token'])
+#bot.run(os.environ['token'])
+bot.run('ODY2NjAzOTI1Nzk2MjkwNTYw.YPU9zA.eGInYWyiOu_EykO1H0HyO1I85FM')
