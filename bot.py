@@ -20,7 +20,7 @@ def getTodayMenu(sourece):
     splitTarget = str(today.month) + '월 ' + str(today.day) + '일 [점심]  '
 
     if str(sourece).find(splitTarget) == -1 :
-        return '급식이 없습니다.'
+        return str(today.month) + '월 ' + str(today.day) + '일 ' + '급식이 없습니다.'
 
     newMsg = str(sourece).split(splitTarget)[1]
 
