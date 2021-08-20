@@ -14,6 +14,8 @@ bot = Bot(command_prefix='!', intents=intents)
 
 
 def getTodayMenu(sourece):
+    print(str(sourece))
+    
     today = date.today()
     tomorrow = date.today() + timedelta(1)
 
